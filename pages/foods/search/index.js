@@ -1,7 +1,7 @@
 import {
   getSearchHistory,
   getSearchPopular,
-} from '../../../services/good/fetchSearchHistory';
+} from '../../../services/food/fetchSearchHistory';
 
 Page({
   data: {

@@ -1,5 +1,5 @@
 import { fetchHome } from '../../services/home/home';
-import { fetchGoodsList } from '../../services/good/fetchGoods';
+import { fetchFoodsList } from '../../services/food/fetchFoods';
 import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({
@@ -89,7 +89,7 @@ Page({
     }
 
     try {
-      const nextList = await fetchGoodsList(pageIndex, pageSize);
+      const nextList = await fetchFoodsList(pageIndex, pageSize);
       this.setData({
         goodsList: fresh ? nextList : this.data.goodsList.concat(nextList),
         goodsListLoadStatus: 0,

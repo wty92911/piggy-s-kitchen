@@ -1,4 +1,4 @@
-import { fetchGoodsList } from '../../../services/good/fetchGoodsList';
+import { fetchFoodsList } from '../../../services/food/fetchFoodsList';
 import Toast from 'tdesign-miniprogram/toast';
 
 const initFilters = {
@@ -78,7 +78,7 @@ Page({
       loading: true,
     });
     try {
-      const result = await fetchGoodsList(params);
+      const result = await fetchFoodsList(params);
       const code = 'Success';
       const data = result;
       if (code.toUpperCase() === 'SUCCESS') {

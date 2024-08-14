@@ -1,10 +1,10 @@
 import Toast from 'tdesign-miniprogram/toast';
-import { fetchGood } from '../../../services/good/fetchGood';
+import { fetchFood } from '../../../services/food/fetchFood';
 import { fetchActivityList } from '../../../services/activity/fetchActivityList';
 import {
   getGoodsDetailsCommentList,
   getGoodsDetailsCommentsCount,
-} from '../../../services/good/fetchGoodsDetailsComments';
+} from '../../../services/food/fetchGoodsDetailsComments';
 
 import { cdnBase } from '../../../config/index';
 
@@ -308,7 +308,7 @@ Page({
   },
 
   getDetail(spuId) {
-    Promise.all([fetchGood(spuId), fetchActivityList()]).then((res) => {
+    Promise.all([fetchFood(spuId), fetchActivityList()]).then((res) => {
       const [details, activityList] = res;
       const skuArray = [];
       const {

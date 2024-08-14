@@ -1,4 +1,4 @@
-import { getCategoryList } from '../../../services/good/fetchCategoryList';
+import { getCategoryList } from '../../../services/food/fetchCategoryList';
 Page({
   data: {
     list: [],
@@ -19,7 +19,7 @@ Page({
   },
   onChange() {
     wx.navigateTo({
-      url: '/pages/goods/list/index',
+      url: '/pages/foods/list/index',
     });
   },
   onLoad() {
