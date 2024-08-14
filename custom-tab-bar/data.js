@@ -10,6 +10,11 @@ export default [
     url: 'pages/goods/category/index',
   },
   {
+    icon: 'sort',
+    text: '食物分类',
+    url: 'pages/foods/category/index',
+  },
+  {
     icon: 'cart',
     text: '购物车',
     url: 'pages/cart/index',

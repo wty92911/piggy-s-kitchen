@@ -10,6 +10,11 @@
     "pages/goods/category/index",
     "pages/goods/search/index",
     "pages/goods/result/index",
+    "pages/foods/list/index",
+    "pages/foods/details/index",
+    "pages/foods/category/index",
+    "pages/foods/search/index",
+    "pages/foods/result/index",
     "pages/cart/index",
     "pages/order/order-confirm/index",
     "pages/order/receipt/index",
@@ -46,6 +51,10 @@
         "text": "分类"
       },
       {
+        "pagePath": "pages/foods/category/index",
+        "text": "食物分类"
+      },
+      {
         "pagePath": "pages/cart/index",
         "text": "购物车"
       },
@@ -55,7 +64,9 @@
       }
     ]
   },
-  "requiredPrivateInfos": ["chooseAddress"],
+  "requiredPrivateInfos": [
+    "chooseAddress"
+  ],
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {},
   "window": {
