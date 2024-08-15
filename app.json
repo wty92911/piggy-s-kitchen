@@ -16,6 +16,7 @@
     "pages/foods/search/index",
     "pages/foods/result/index",
     "pages/cart/index",
+    "pages/menu/index",
     "pages/order/order-confirm/index",
     "pages/order/receipt/index",
     "pages/order/pay-result/index",

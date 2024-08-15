@@ -55,14 +55,14 @@ Page({
         iconName: 'home',
       },
       {
-        title: '购物车',
+        title: '菜单',
         url: '/pages/cart/index',
-        iconName: 'cart',
+        iconName: 'task',
         showCartNum: true,
       },
     ],
     isStock: true,
-    cartNum: 0,
+    cartNum: 22,
     soldout: false,
     buttonType: 1,
     buyNum: 1,
@@ -105,7 +105,12 @@ Page({
   },
 
   buyItNow() {
-    this.showSkuSelectPopup(1);
+    this.setData({
+      cartNum: this.data.cartNum + 1,
+    });
+    console.log(this.data.cartNum);
+    // this.showSkuSelectPopup(1);
+
   },
 
   toAddCart() {

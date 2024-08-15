@@ -43,12 +43,12 @@ Component({
   },
 
   methods: {
-    toAddCart() {
-      const { isStock } = this.properties;
-      if (!isStock) return;
-      this.triggerEvent('toAddCart');
-    },
-
+    // toAddCart() {
+    //   const { isStock } = this.properties;
+    //   if (!isStock) return;
+    //   this.triggerEvent('toAddCart');
+    // },
+    // 立即下单
     toBuyNow(e) {
       const { isStock } = this.properties;
       if (!isStock) return;
