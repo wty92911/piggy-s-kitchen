@@ -9,7 +9,7 @@ const initFilters = {
 
 Page({
   data: {
-    goodsList: [],
+    foodsList: [],
     layout: 0,
     sorts: '',
     overall: 1,
@@ -20,6 +20,7 @@ Page({
     hasLoaded: false,
     loadMoreStatus: 0,
     loading: true,
+    groupId: 0,
   },
 
   pageNum: 1,
@@ -39,7 +40,7 @@ Page({
   },
 
   generalQueryData(reset = false) {
-    const { filter, keywords, minVal, maxVal } = this.data;
+    const { filter, keywords, minVal, maxVal, groupId } = this.data;
     const { pageNum, pageSize } = this;
     const { sorts, overall } = filter;
     const params = {
@@ -47,6 +48,7 @@ Page({
       pageNum: 1,
       pageSize: 30,
       keyword: keywords,
+      groupId: groupId,
     };
 
     if (sorts) {
@@ -70,7 +72,7 @@ Page({
   },
 
   async init(reset = true) {
-    const { loadMoreStatus, goodsList = [] } = this.data;
+    const { loadMoreStatus, foodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
     if (loadMoreStatus !== 0) return;
     this.setData({
@@ -79,10 +81,12 @@ Page({
     });
     try {
       const result = await fetchFoodsList(params);
+
       const code = 'Success';
       const data = result;
+      console.log(data);
       if (code.toUpperCase() === 'SUCCESS') {
-        const { spuList, totalCount = 0 } = data;
+        const { foodsList: revFoodsList, totalCount = 0 } = data;
         if (totalCount === 0 && reset) {
           this.total = totalCount;
           this.setData({
@@ -92,17 +96,17 @@ Page({
             hasLoaded: true,
             loadMoreStatus: 0,
             loading: false,
-            goodsList: [],
+            foodsList: [],
           });
           return;
         }
 
-        const _goodsList = reset ? spuList : goodsList.concat(spuList);
-        const _loadMoreStatus = _goodsList.length === totalCount ? 2 : 0;
+        const _foodsList = reset ? revFoodsList : foodsList.concat(revFoodsList);
+        const _loadMoreStatus = _foodsList.length === totalCount ? 2 : 0;
         this.pageNum = params.pageNum || 1;
         this.total = totalCount;
         this.setData({
-          goodsList: _goodsList,
+          foodsList: _foodsList,
           loadMoreStatus: _loadMoreStatus,
         });
       } else {
@@ -124,14 +128,20 @@ Page({
     });
   },
 
-  onLoad() {
+  onLoad(options) {
+    const { groupId } = options;
+    if (groupId) {
+      this.setData({
+        groupId,
+      });
+    }
     this.init(true);
   },
 
   onReachBottom() {
-    const { goodsList } = this.data;
+    const { foodsList } = this.data;
     const { total = 0 } = this;
-    if (goodsList.length === total) {
+    if (foodsList.length === total) {
       this.setData({
         loadMoreStatus: 2,
       });
@@ -144,7 +154,7 @@ Page({
     Toast({
       context: this,
       selector: '#t-toast',
-      message: '点击加购',
+      message: '已添加至菜单',
     });
   },
 
@@ -156,11 +166,12 @@ Page({
     });
   },
 
-  gotoGoodsDetail(e) {
+  gotoFoodsDetail(e) {
     const { index } = e.detail;
-    const { spuId } = this.data.goodsList[index];
+    const { id } = this.data.foodsList[index];
+    console.log(id);
     wx.navigateTo({
-      url: `/pages/goods/details/index?spuId=${spuId}`,
+      url: `/pages/foods/details/index?id=${id}`,
     });
   },
 
@@ -214,7 +225,7 @@ Page({
       {
         show: false,
         minVal: '',
-        goodsList: [],
+        foodsList: [],
         loadMoreStatus: 0,
         maxVal: '',
       },

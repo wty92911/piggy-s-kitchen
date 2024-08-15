@@ -1,202 +1,141 @@
+const localImgPrefix = '../../../static/image/category';
 export function getCategoryList() {
   return [
     {
-      groupId: '24948',
-      name: '女装',
-      thumbnail:
-        'https://cdn-we-retail.ym.tencent.com/miniapp/category/category-default.png',
+      groupId: '10001',
+      name: '煎炒',
+      // thumbnail: 'https://example.com/soup.png',
       children: [
         {
-          groupId: '249481',
-          name: '女装',
-          thumbnail:
-            'https://cdn-we-retail.ym.tencent.com/miniapp/category/category-default.png',
+          groupId: '100011',
+          name: '荤菜',
+          // thumbnail: 'https://example.com/clear_soup.png',
           children: [
             {
-              groupId: '249480',
-              name: '卫衣',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-1.png',
+              groupId: '1000111',
+              name: '肉类',
+              thumbnail: `${localImgPrefix}/huiguorou.png`,
             },
             {
-              groupId: '249480',
-              name: '毛呢外套',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-2.png',
+              groupId: '1000112',
+              name: '海鲜',
+              thumbnail: `${localImgPrefix}/yanjianxia.png`,
+            },
+          ],
+        },
+        {
+          groupId: '100012',
+          name: '素菜',
+          // thumbnail: 'https://example.com/clear_soup.png',
+          children: [
+            {
+              groupId: '1000121',
+              name: '时蔬',
+              thumbnail: `${localImgPrefix}/qingcai.png`,
             },
             {
-              groupId: '249480',
-              name: '雪纺衫',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-3.png',
+              groupId: '1000122',
+              name: '菌菇',
+              thumbnail: `${localImgPrefix}/chaomogu.png`,
+            },
+          ],
+        },
+        {
+          groupId: '100013',
+          name: '主食',
+          // thumbnail: 'https://example.com/clear_soup.png',
+          children: [
+            {
+              groupId: '1000131',
+              name: '炒饭',
+              thumbnail: `${localImgPrefix}/chaofan.jpeg`,
             },
             {
-              groupId: '249480',
-              name: '羽绒服',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-4.png',
-            },
-            {
-              groupId: '249480',
-              name: '毛衣',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-5.png',
-            },
-            {
-              groupId: '249480',
-              name: '棉衣',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-6.png',
-            },
-            {
-              groupId: '249480',
-              name: '西装',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-7.png',
-            },
-            {
-              groupId: '249480',
-              name: '马甲',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-8.png',
-            },
-            {
-              groupId: '249480',
-              name: '连衣裙',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-9.png',
-            },
-            {
-              groupId: '249480',
-              name: '半身裙',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-10.png',
-            },
-            {
-              groupId: '249480',
-              name: '裤子',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-11.png',
+              groupId: '1000132',
+              name: '炒面',
+              thumbnail: `${localImgPrefix}/chaomian.png`,
             },
           ],
         },
       ],
     },
     {
-      groupId: '24948',
-      name: '男装',
-      thumbnail:
-        'https://cdn-we-retail.ym.tencent.com/miniapp/category/category-default.png',
+      groupId: '10002',
+      name: '炖煮',
+      // thumbnail: 'https://example.com/soup.png',
       children: [
         {
-          groupId: '249481',
-          name: '男装',
-          thumbnail:
-            'https://cdn-we-retail.ym.tencent.com/miniapp/category/category-default.png',
+          groupId: '100021',
+          name: '荤菜',
+          // thumbnail: 'https://example.com/clear_soup.png',
           children: [
             {
-              groupId: '249480',
-              name: '卫衣',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-1.png',
+              groupId: '1000211',
+              name: '肉类',
+              thumbnail: `${localImgPrefix}/dunrou.jpeg`,
             },
             {
-              groupId: '249480',
-              name: '裤子',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-11.png',
+              groupId: '1000212',
+              name: '海鲜',
+              thumbnail: `${localImgPrefix}/baizhuoxia.jpeg`,
+            },
+          ],
+        },
+        {
+          groupId: '100022',
+          name: '主食',
+          // thumbnail: 'https://example.com/clear_soup.png',
+          children: [
+            {
+              groupId: '1000221',
+              name: '粥',
+              thumbnail: `${localImgPrefix}/zhou.jpeg`,
             },
             {
-              groupId: '249480',
-              name: '西装',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-7.png',
-            },
-            {
-              groupId: '249480',
-              name: '羽绒服',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-4.png',
-            },
-            {
-              groupId: '249480',
-              name: '马甲',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-8.png',
+              groupId: '1000222',
+              name: '饭',
+              thumbnail: `${localImgPrefix}/fan.jpeg`,
             },
           ],
         },
       ],
     },
     {
-      groupId: '24948',
-      name: '儿童装',
-      thumbnail:
-        'https://cdn-we-retail.ym.tencent.com/miniapp/category/category-default.png',
+      groupId: '10003',
+      name: '蒸烤',
+      // thumbnail: 'https://example.com/soup.png',
       children: [
         {
-          groupId: '249481',
-          name: '儿童装',
-          thumbnail:
-            'https://cdn-we-retail.ym.tencent.com/miniapp/category/category-default.png',
+          groupId: '100031',
+          name: '荤菜',
+          // thumbnail: 'https://example.com/clear_soup.png',
           children: [
             {
-              groupId: '249480',
-              name: '马甲',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-8.png',
+              groupId: '1000311',
+              name: '肉类',
+              thumbnail: `${localImgPrefix}/kaorou.jpeg`,
             },
             {
-              groupId: '249480',
-              name: '裤子',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-11.png',
-            },
-            {
-              groupId: '249480',
-              name: '连衣裙',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/classify/img-9.png',
-            },
-            {
-              groupId: '249480',
-              name: '其他',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3b.png',
+              groupId: '1000312',
+              name: '海鲜',
+              thumbnail: `${localImgPrefix}/zhengyu.jpeg`,
             },
           ],
         },
-      ],
-    },
-    {
-      groupId: '24948',
-      name: '美妆',
-      thumbnail:
-        'https://cdn-we-retail.ym.tencent.com/miniapp/category/category-default.png',
-      children: [
         {
-          groupId: '249481',
-          name: '美妆',
-          thumbnail:
-            'https://cdn-we-retail.ym.tencent.com/miniapp/category/category-default.png',
+          groupId: '100032',
+          name: '主食',
+          // thumbnail: 'https://example.com/clear_soup.png',
           children: [
             {
-              groupId: '249480',
-              name: '唇釉',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/mz-20a1.png',
+              groupId: '1000321',
+              name: '面食',
+              thumbnail: `${localImgPrefix}/miantiao.jpeg`,
             },
             {
-              groupId: '249480',
-              name: '美妆蛋',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/mz-11a1.png',
-            },
-            {
-              groupId: '249480',
-              name: '眼影',
-              thumbnail:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/mz-12b.png',
+              groupId: '1000322',
+              name: '粗粮',
+              thumbnail: `${localImgPrefix}/zhuyumi.jpeg`,
             },
           ],
         },

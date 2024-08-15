@@ -1,4 +1,5 @@
 import { getGoodsList } from './goods';
+import { getFoodsList } from './foods';
 
 /**
  * @param {number} sort
@@ -55,6 +56,18 @@ export function getSearchResult() {
     pageSize: 30,
     totalCount: 1,
     spuList: getGoodsList(7),
+    algId: 0,
+  };
+}
+
+export function getFoodSearchResult(params) {
+  return {
+    saasId: null,
+    storeId: null,
+    pageNum: 1,
+    pageSize: 30,
+    totalCount: 1,
+    foodsList: getFoodsList(params.groupId),
     algId: 0,
   };
 }

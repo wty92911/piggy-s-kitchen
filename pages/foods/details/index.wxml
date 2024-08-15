@@ -16,24 +16,13 @@
           <price
             wr-class="class-goods-price"
             symbol-class="class-goods-symbol"
-            price="{{minSalePrice}}"
+            price="{{price}}"
             type="lighter"
           />
-          <view class="goods-price-up">起</view>
-          <price wr-class="class-goods-del" price="{{maxLinePrice}}" type="delthrough" />
+<!--          <view class="goods-price-up">起</view>-->
+<!--          <price wr-class="class-goods-del" price="{{maxLinePrice}}" type="delthrough" />-->
         </view>
-        <view class="sold-num">已售{{soldNum}}</view>
-      </view>
-      <view wx:if="{{activityList.length > 0}}" class="goods-activity" bindtap="showPromotionPopup">
-        <view class="tags-container">
-          <view wx:for="{{activityList}}" data-promotionId="{{item.promotionId}}" wx:key="index" wx:if="{{index<4}}">
-            <view class="goods-activity-tag">{{item.tag}}</view>
-          </view>
-        </view>
-        <view class="activity-show">
-          <view class="activity-show-text">领劵</view>
-          <t-icon name="chevron-right" size="42rpx" />
-        </view>
+        <view class="sold-num">已点{{soldNum}}</view>
       </view>
       <view class="goods-title">
         <view class="goods-name">{{details.title}}</view>

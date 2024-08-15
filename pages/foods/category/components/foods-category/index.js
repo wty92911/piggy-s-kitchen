@@ -54,6 +54,7 @@ Component({
     },
     changCategory(event) {
       const { item } = event.currentTarget.dataset;
+      // console.log(item);
       this.triggerEvent('changeCategory', {
         item,
       });

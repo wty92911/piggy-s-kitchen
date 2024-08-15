@@ -106,7 +106,7 @@ Page({
     const { index } = e.detail;
     const { spuId } = this.data.goodsList[index];
     wx.navigateTo({
-      url: `/pages/goods/details/index?spuId=${spuId}`,
+      url: `/pages/foods/details/index?spuId=${spuId}`,
     });
   },
 
@@ -119,7 +119,7 @@ Page({
   },
 
   navToSearchPage() {
-    wx.navigateTo({ url: '/pages/goods/search/index' });
+    wx.navigateTo({ url: '/pages/foods/search/index' });
   },
 
   navToActivityDetail({ detail }) {

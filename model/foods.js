@@ -1,7 +1,7 @@
-import { genGood } from './good';
+import { genFood } from './food';
 
-export function getGoodsList(baseID = 0, length = 10) {
-  return new Array(length).fill(0).map((_, idx) => genGood(idx + baseID));
+export function getFoodsList(groupId = 0, length = 10) {
+  return genFood(groupId, length);
 }
 
-export const goodsList = getGoodsList();
+export const foodsList = getFoodsList(0);

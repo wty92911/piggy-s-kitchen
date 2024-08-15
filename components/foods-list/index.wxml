@@ -1,0 +1,15 @@
+<view class="foods-list-wrap wr-class" id="{{independentID}}">
+	  <block wx:for="{{foodsList}}" wx:for-item="item" wx:key="index">
+			<foods-card
+			  id="{{independentID}}-gd-{{index}}"
+			  data="{{item}}"
+			  currency="{{item.currency || '¥'}}"
+			  thresholds="{{thresholds}}"
+			  class="foods-card-inside"
+			  data-index="{{index}}"
+			  bind:thumb="onClickFoodsThumb"
+			  bind:click="onClickFoods"
+			  bind:add-cart="onAddCart"
+			/>
+	  </block>
+</view>

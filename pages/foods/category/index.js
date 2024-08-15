@@ -17,9 +17,10 @@ Page({
   onShow() {
     this.getTabBar().init();
   },
-  onChange() {
+  onChange(event) {
+    const { item } = event.detail;
     wx.navigateTo({
-      url: '/pages/foods/list/index',
+      url: `/pages/foods/list/index?groupId=${item.groupId}`,
     });
   },
   onLoad() {

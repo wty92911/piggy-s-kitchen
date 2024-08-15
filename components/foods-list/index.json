@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "foods-card": "/components/foods-card/index",
+    "goods-card": "/components/goods-card/index"
+  }
+}
