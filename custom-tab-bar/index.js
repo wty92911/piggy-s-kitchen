@@ -17,6 +17,7 @@ Component({
 
     init() {
       const page = getCurrentPages().pop();
+      console.log(page);
       const route = page ? page.route.split('?')[0] : '';
       const active = this.data.list.findIndex(
         (item) =>

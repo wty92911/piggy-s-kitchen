@@ -6,7 +6,7 @@
 >
 	<view class="specs-popup">
 		<view>
-			<goods-card data="{{goods}}" layout="horizontal-wrap" thumb-mode="{{thumbMode}}" />
+			<foods-card data="{{goods}}" layout="horizontal-wrap" thumb-mode="{{thumbMode}}" />
 			<view class="section">
 				<view class="title">已选规格</view>
 				<view class="options">

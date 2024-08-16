@@ -31,8 +31,8 @@ Component({
     },
     id: {
       type: String,
-      // `goods-card-88888888`
-      // 不能在这里写生成逻辑，如果在这里写，那么假设有多个goods-list时，他们将共享这个值
+      // `food-card-88888888`
+      // 不能在这里写生成逻辑，如果在这里写，那么假设有多个food-list时，他们将共享这个值
       value: '',
       observer: (id) => {
         this.genIndependentID(id);
@@ -43,35 +43,39 @@ Component({
     },
     data: {
       type: Object,
-      observer(goods) {
+      observer(food) {
         // 有ID的商品才渲染
-        if (!goods) {
+        if (!food) {
           return;
         }
+        const newFood = {
+          ...food,
+          thumb: food.primaryImage,
+        };
+        console.log(newFood);
+        // /** 划线价是否有效 */
+        // let isValidityLinePrice = true;
+        // // 判断一次划线价格是否合理
+        // if (
+        //   food.originPrice &&
+        //   food.price &&
+        //   food.originPrice < food.price
+        // ) {
+        //   isValidityLinePrice = false;
+        // }
+        //
+        // // 敲定换行数量默认值
+        // if (food.lineClamp === undefined || food.lineClamp <= 0) {
+        //   // tag数组长度 大于0 且 可见
+        //   // 指定换行为1行
+        //   if ((food.tags?.length || 0) > 0 && !food.hideKey?.tags) {
+        //     food.lineClamp = 1;
+        //   } else {
+        //     food.lineClamp = 2;
+        //   }
+        // }
 
-        /** 划线价是否有效 */
-        let isValidityLinePrice = true;
-        // 判断一次划线价格是否合理
-        if (
-          goods.originPrice &&
-          goods.price &&
-          goods.originPrice < goods.price
-        ) {
-          isValidityLinePrice = false;
-        }
-
-        // 敲定换行数量默认值
-        if (goods.lineClamp === undefined || goods.lineClamp <= 0) {
-          // tag数组长度 大于0 且 可见
-          // 指定换行为1行
-          if ((goods.tags?.length || 0) > 0 && !goods.hideKey?.tags) {
-            goods.lineClamp = 1;
-          } else {
-            goods.lineClamp = 2;
-          }
-        }
-
-        this.setData({ goods, isValidityLinePrice });
+        this.setData({ food: newFood });
       },
     },
     layout: {
@@ -135,7 +139,7 @@ Component({
   data: {
     hiddenInData: false,
     independentID: '',
-    goods: { id: '' },
+    food: { id: '' },
     /** 保证划线价格不小于原价，否则不渲染划线价 */
     isValidityLinePrice: false,
   },
@@ -151,17 +155,17 @@ Component({
 
   methods: {
     clickHandle() {
-      this.triggerEvent('click', { goods: this.data.goods });
+      this.triggerEvent('click', { food: this.data.food });
     },
     clickThumbHandle() {
-      this.triggerEvent('thumb', { goods: this.data.goods });
+      this.triggerEvent('thumb', { food: this.data.food });
     },
     clickSpecsHandle() {
-      this.triggerEvent('specs', { goods: this.data.goods });
+      this.triggerEvent('specs', { food: this.data.food });
     },
     clickTagHandle(evt) {
       const { index } = evt.currentTarget.dataset;
-      this.triggerEvent('tag', { goods: this.data.goods, index });
+      this.triggerEvent('tag', { food: this.data.food, index });
     },
     // 加入购物车
     addCartHandle(e) {
@@ -171,7 +175,7 @@ Component({
         ...e.detail,
         id,
         cardID,
-        goods: this.data.goods,
+        food: this.data.food,
       });
     },
     genIndependentID(id, cb) {
@@ -179,7 +183,7 @@ Component({
       if (id) {
         independentID = id;
       } else {
-        independentID = `goods-card-${~~(Math.random() * 10 ** 8)}`;
+        independentID = `food-card-${~~(Math.random() * 10 ** 8)}`;
       }
       this.setData({ independentID }, cb);
     },
@@ -225,7 +229,7 @@ Component({
     },
     intersectionObserverCB(ob) {
       this.triggerEvent('ob', {
-        goods: this.data.goods,
+        food: this.data.food,
         context: this.intersectionObserverContext,
         ob,
       });

@@ -10,23 +10,11 @@ Component({
       type: Boolean,
       value: false,
     },
-    totalAmount: {
+    totalPrice: {
       type: Number,
       value: 1,
     },
-    totalGoodsNum: {
-      type: Number,
-      value: 0,
-      observer(num) {
-        const isDisabled = num == 0;
-        setTimeout(() => {
-          this.setData({
-            isDisabled,
-          });
-        });
-      },
-    },
-    totalDiscountAmount: {
+    totalFoodsNum: {
       type: Number,
       value: 0,
     },

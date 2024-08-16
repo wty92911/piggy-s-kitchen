@@ -35,8 +35,23 @@ export function genFood(groupId, length) {
 
 /**
  * @param {string} id
+ * return {object} food
  * */
 
 export function genFoodById(id) {
   return allFoods.find((food) => food.id === id);
+}
+
+/**
+ *
+ * @param {Array} ids
+ */
+
+export function genFoodByIds(ids) {
+  // return results[i].id == ids[i]
+  const results = [];
+  for (let i = 0; i < ids.length; i++) {
+    results.push(genFoodById(ids[i]));
+  }
+  return results;
 }

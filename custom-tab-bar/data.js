@@ -20,6 +20,11 @@ export default [
     url: 'pages/cart/index',
   },
   {
+    icon: 'menu',
+    text: '菜单',
+    url: 'pages/menu/index',
+  },
+  {
     icon: 'person',
     text: '个人中心',
     url: 'pages/usercenter/index',

@@ -5,7 +5,7 @@
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-stepper": "tdesign-miniprogram/stepper/stepper",
     "swipeout": "/components/swipeout/index",
-    "goods-card": "../../components/goods-card/index",
+    "foods-card": "../../components/foods-card/index",
     "specs-popup": "../../components/specs-popup/index"
   }
 }

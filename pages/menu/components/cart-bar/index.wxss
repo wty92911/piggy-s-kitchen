@@ -73,6 +73,8 @@
 .cart-bar__total .cart-bar__total--price {
   color: #fa4126;
   font-weight: bold;
+  text-align: center;
+  font-size: x-large;
 }
 
 .text-padding-right {

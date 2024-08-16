@@ -14,3 +14,4 @@ yarn.lock
 project.private.config.json
 .eslintcache
 .idea/*
+.cloudbase/*

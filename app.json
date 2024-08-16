@@ -13,7 +13,7 @@
     "pages/foods/list/index",
     "pages/foods/details/index",
     "pages/foods/category/index",
-    "pages/foods/search/index",
+    "pages/foods/search/index"  ,
     "pages/foods/result/index",
     "pages/cart/index",
     "pages/menu/index",
@@ -58,6 +58,10 @@
       {
         "pagePath": "pages/cart/index",
         "text": "购物车"
+      },
+      {
+        "pagePath": "pages/menu/index",
+        "text": "菜单"
       },
       {
         "pagePath": "pages/usercenter/index",

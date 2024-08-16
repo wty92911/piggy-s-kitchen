@@ -56,8 +56,8 @@ Page({
       },
       {
         title: '菜单',
-        url: '/pages/cart/index',
-        iconName: 'task',
+        url: '/pages/menu/index',
+        iconName: 'menu',
         showCartNum: true,
       },
     ],
