@@ -1,18 +1,27 @@
-import { config } from '../../config/index';
-
 /** 获取商品列表 */
-function mockFetchFoodCategory() {
-  const { delay } = require('../_utils/delay');
-  const { getCategoryList } = require('../../model/food-category');
-  return delay().then(() => getCategoryList());
+import { categoryCloudPath } from '../../config/index';
+import { getCategory } from '../../api/category';
+
+function addCloudPathPrefix(categoryList) {
+  return categoryList.map((item) => {
+    if (item.thumbnail) {
+      // eslint-disable-next-line no-param-reassign
+      item.thumbnail = `${categoryCloudPath}${item.thumbnail}`;
+    }
+    if (item.children && item.children.length > 0) {
+      // eslint-disable-next-line no-param-reassign
+      item.children = addCloudPathPrefix(item.children);
+    }
+    return item;
+  });
 }
 
-/** 获取商品列表 */
-export function getCategoryList() {
-  if (config.useMock) {
-    return mockFetchFoodCategory();
-  }
-  return new Promise((resolve) => {
-    resolve('real api');
-  });
+export function fetchCategoryList() {
+  return getCategory()
+    .then((category) => {
+      return addCloudPathPrefix(category);
+    })
+    .catch((error) => {
+      console.error('Error fetching category list:', error);
+    });
 }

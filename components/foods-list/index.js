@@ -1,5 +1,3 @@
-import { foodsList } from '../../model/foods';
-
 Component({
   externalClasses: ['wr-class'],
 
@@ -28,7 +26,8 @@ Component({
   lifetimes: {
     ready() {
       this.init();
-      console.log(foodsList);
+
+      // console.log(this.foodsList);
     },
   },
 

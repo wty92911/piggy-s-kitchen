@@ -80,15 +80,13 @@ Page({
       loading: true,
     });
     try {
-      const result = await fetchFoodsList(params);
+      const revFoodsList = await fetchFoodsList(params);
 
       const code = 'Success';
-      const data = result;
-      console.log(data);
+      console.log(revFoodsList);
       if (code.toUpperCase() === 'SUCCESS') {
-        const { foodsList: revFoodsList, totalCount = 0 } = data;
-        if (totalCount === 0 && reset) {
-          this.total = totalCount;
+        if (revFoodsList.length === 0 && reset) {
+          this.total = 0;
           this.setData({
             emptyInfo: {
               tip: '抱歉，未找到相关商品',
@@ -102,9 +100,10 @@ Page({
         }
 
         const _foodsList = reset ? revFoodsList : foodsList.concat(revFoodsList);
-        const _loadMoreStatus = _foodsList.length === totalCount ? 2 : 0;
+        //TODO: 这里先全部返回
+        const _loadMoreStatus = _foodsList.length === revFoodsList.length ? 2 : 0;
         this.pageNum = params.pageNum || 1;
-        this.total = totalCount;
+        this.total = revFoodsList.length;
         this.setData({
           foodsList: _foodsList,
           loadMoreStatus: _loadMoreStatus,
@@ -169,7 +168,7 @@ Page({
   gotoFoodsDetail(e) {
     const { index } = e.detail;
     const { id } = this.data.foodsList[index];
-    console.log(id);
+    // console.log(id);
     wx.navigateTo({
       url: `/pages/foods/details/index?id=${id}`,
     });

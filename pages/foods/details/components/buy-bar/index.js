@@ -39,6 +39,7 @@ Component({
   },
 
   data: {
+    showBubble: false,
     fillPrice: false,
   },
 
@@ -50,8 +51,10 @@ Component({
     // },
     // 立即下单
     toBuyNow(e) {
-      const { isStock } = this.properties;
-      if (!isStock) return;
+      this.setData({ showBubble: true });
+      setTimeout(() => {
+        this.setData({ showBubble: false });
+      }, 1000); // 1秒后隐藏泡泡
       this.triggerEvent('toBuyNow', e);
     },
 

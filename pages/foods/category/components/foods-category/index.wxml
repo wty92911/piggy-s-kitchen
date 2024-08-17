@@ -18,6 +18,7 @@
               <view class="flex goods-category-normal-item-container-item-title">
                 {{subItem.name}}
               </view>
+
             </view>
           </view>
         </block>

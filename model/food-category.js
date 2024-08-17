@@ -1,4 +1,4 @@
-const localImgPrefix = '../../../static/image/category';
+const localImgPrefix = '/static/image/category';
 export function getCategoryList() {
   return [
     {
@@ -14,12 +14,12 @@ export function getCategoryList() {
             {
               groupId: '1000111',
               name: '肉类',
-              thumbnail: `${localImgPrefix}/huiguorou.png`,
+              thumbnail: '/static/image/category}/huiguorou.png',
             },
             {
               groupId: '1000112',
               name: '海鲜',
-              thumbnail: `${localImgPrefix}/yanjianxia.png`,
+              thumbnail: '/static/image/category}/yanjianxia.png',
             },
           ],
         },
@@ -31,12 +31,12 @@ export function getCategoryList() {
             {
               groupId: '1000121',
               name: '时蔬',
-              thumbnail: `${localImgPrefix}/qingcai.png`,
+              thumbnail: '/static/image/category}/qingcai.png',
             },
             {
               groupId: '1000122',
               name: '菌菇',
-              thumbnail: `${localImgPrefix}/chaomogu.png`,
+              thumbnail: '/static/image/category}/chaomogu.png',
             },
           ],
         },
@@ -48,12 +48,12 @@ export function getCategoryList() {
             {
               groupId: '1000131',
               name: '炒饭',
-              thumbnail: `${localImgPrefix}/chaofan.jpeg`,
+              thumbnail: '/static/image/category}/chaofan.jpeg',
             },
             {
               groupId: '1000132',
               name: '炒面',
-              thumbnail: `${localImgPrefix}/chaomian.png`,
+              thumbnail: '/static/image/category}/chaomian.png',
             },
           ],
         },
@@ -72,12 +72,12 @@ export function getCategoryList() {
             {
               groupId: '1000211',
               name: '肉类',
-              thumbnail: `${localImgPrefix}/dunrou.jpeg`,
+              thumbnail: '/static/image/category}/dunrou.jpeg',
             },
             {
               groupId: '1000212',
               name: '海鲜',
-              thumbnail: `${localImgPrefix}/baizhuoxia.jpeg`,
+              thumbnail: '/static/image/category}/baizhuoxia.jpeg',
             },
           ],
         },
@@ -89,12 +89,12 @@ export function getCategoryList() {
             {
               groupId: '1000221',
               name: '粥',
-              thumbnail: `${localImgPrefix}/zhou.jpeg`,
+              thumbnail: '/static/image/category}/zhou.jpeg',
             },
             {
               groupId: '1000222',
               name: '饭',
-              thumbnail: `${localImgPrefix}/fan.jpeg`,
+              thumbnail: '/static/image/category}/fan.jpeg',
             },
           ],
         },
@@ -113,12 +113,12 @@ export function getCategoryList() {
             {
               groupId: '1000311',
               name: '肉类',
-              thumbnail: `${localImgPrefix}/kaorou.jpeg`,
+              thumbnail: '/static/image/category}/kaorou.jpeg',
             },
             {
               groupId: '1000312',
               name: '海鲜',
-              thumbnail: `${localImgPrefix}/zhengyu.jpeg`,
+              thumbnail: '/static/image/category}/zhengyu.jpeg',
             },
           ],
         },
@@ -130,12 +130,12 @@ export function getCategoryList() {
             {
               groupId: '1000321',
               name: '面食',
-              thumbnail: `${localImgPrefix}/miantiao.jpeg`,
+              thumbnail: '/static/image/category}/miantiao.jpeg',
             },
             {
               groupId: '1000322',
               name: '粗粮',
-              thumbnail: `${localImgPrefix}/zhuyumi.jpeg`,
+              thumbnail: '/static/image/category}/zhuyumi.jpeg',
             },
           ],
         },

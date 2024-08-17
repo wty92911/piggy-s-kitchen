@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "分类",
   "usingComponents": {
-    "goods-category": "./components/foods-category/index"
+    "foods-category": "./components/foods-category/index"
   }
 }

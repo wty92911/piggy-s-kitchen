@@ -73,7 +73,9 @@
     "chooseAddress"
   ],
   "lazyCodeLoading": "requiredComponents",
-  "usingComponents": {},
+  "usingComponents": {
+
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

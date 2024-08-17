@@ -1,11 +1,13 @@
-import { getCategoryList } from '../../../services/food/fetchCategoryList';
+import { fetchCategoryList } from '../../../services/food/fetchCategoryList';
+
 Page({
   data: {
     list: [],
   },
   async init() {
     try {
-      const result = await getCategoryList();
+      const result = await fetchCategoryList();
+      // console.log(result);
       this.setData({
         list: result,
       });

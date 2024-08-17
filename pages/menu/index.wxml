@@ -2,20 +2,17 @@
 <block wx:if="{{menuData.foodIds.length>0}}">
   <cart-group
     menu-data="{{ menuData }}"
-    bindselectgoods="onGoodsSelect"
-    bindselectstore="onStoreSelect"
+    foods="{{foods}}"
     bindchangequantity="onQuantityChange"
-    bindgocollect="goCollect"
     bindfoodclick="goFoodDetail"
-    bindclearinvalidgoods="clearInvalidGoods"
     binddelete="onFoodDelete"
   />
 
   <view class="gap" />
   <!-- 商品小计以及结算按钮 -->
   <cart-bar
-    total-price="{{totalPrice}}"
-    total-foods-num="{{totalFoodsNum}}"
+    total-price="{{menuData.totalPrice}}"
+    total-foods-num="{{menuData.totalAmount}}"
     fixed="{{true}}"
     bottomHeight="{{112}}"
     bindhandleToSettle="onToSettle"

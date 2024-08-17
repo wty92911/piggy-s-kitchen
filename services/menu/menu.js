@@ -1,20 +1,20 @@
-import { config } from '../../config/index';
+import { getMenu, updateMenu } from '../../api/menu';
 
-/** 获取购物车mock数据 */
-function mockFetchMenuData(params) {
-  const { delay } = require('../_utils/delay');
-  const { genMenuData } = require('../../model/menu');
-
-  return delay().then(() => genMenuData(params));
-}
-
-/** 获取购物车数据 */
-export function fetchMenuData(params) {
-  if (config.useMock) {
-    return mockFetchMenuData(params);
+export async function addFoodToMenu(id) {
+  const menu = await getMenu();
+  let find = false;
+  for (let i = 0; i < menu.foodIds.length; i++) {
+    if (menu.foodIds[i] === id) {
+      menu.amounts[i]++;
+      find = true;
+      break;
+    }
   }
-
-  return new Promise((resolve) => {
-    resolve('real api');
-  });
+  if (!find) {
+    menu.foodIds.push(id);
+    menu.amounts.push(1);
+  }
+  menu.totalAmount++;
+  await updateMenu(menu);
+  return menu;
 }

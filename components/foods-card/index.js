@@ -24,6 +24,7 @@ Component({
         if (data.originPrice && data.price && data.originPrice < data.price) {
           isValidityLinePrice = false;
         }
+        console.log(data);
         this.setData({ foods: data, isValidityLinePrice });
       },
     },
@@ -54,6 +55,7 @@ Component({
   lifetimes: {
     ready() {
       this.init();
+
     },
     detached() {
       this.clear();

@@ -1,7 +1,4 @@
-import { cdnBase } from '../config/index';
-const imgPrefix = cdnBase;
-const localImgPreifix = '../../../static/image/food';
-const defaultDesc = [`${imgPrefix}/goods/details-1.png`];
+import { getAllFoods } from '../api/food';
 
 const allFoods = [
   {
@@ -24,13 +21,20 @@ const allFoods = [
  * @param {string} groupId
  * @param {number} [length] 长度, 默认10
  */
-export function genFood(groupId, length) {
-  // eslint-disable-next-line no-console
-  // console.log('genFood', groupId, length);
-  return allFoods
-    .filter((food) => food.groupId === groupId)
-    .sort(() => Math.random() - 0.5)
-    .slice(0, length);
+
+export async function genFood(groupId, length) {
+  try {
+    // 获取所有食物
+    const foods = await getAllFoods();
+    // 筛选出符合条件的食物
+    const filteredFoods = foods.filter((food) => food.groupId === groupId);
+
+    // 随机打乱数组顺序并截取指定长度
+    return filteredFoods.sort(() => Math.random() - 0.5).slice(0, length);
+  } catch (err) {
+    console.error('Failed to generate food:', err);
+    throw err;
+  }
 }
 
 /**

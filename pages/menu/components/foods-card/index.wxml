@@ -10,8 +10,8 @@
 			<!-- data-src 是方便加购动画读取图片用的 -->
 			<t-image
 			  t-class="wr-goods-card__thumb-com"
-			  wx:if="{{ !!food.thumb && !food.hideKey.thumb }}"
-			  src="{{ food.thumb }}"
+			  wx:if="{{ !!food.primaryImage && !food.hideKey.thumb }}"
+			  src="{{ food.primaryImage }}"
 			  mode="{{ thumbMode }}"
 			  lazy-load="{{ lazyLoad }}"
 			/>

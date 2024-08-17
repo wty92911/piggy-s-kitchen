@@ -1,6 +1,5 @@
 // import Toast from 'tdesign-miniprogram/toast/index';
 import { genFoodById } from '../../../../model/food';
-
 // const shortageImg =
 //   'https://cdn-we-retail.ym.tencent.com/miniapp/cart/shortage.png';
 
@@ -11,14 +10,14 @@ Component({
     menuData: {
       type: Object,
       observer(menuData) {
-        // 用menuData 来生成foods
-        this.setData({
-          foods: menuData.foodIds.map((id, idx) => {
-            const food = genFoodById(id);
-            return { ...food, amount: menuData.amounts[idx] };
-          }),
-        });
+        this.setData({ menuData });
       },
+    },
+    foods: {
+      type: Array,
+      observer(foods) {
+        this.setData({ foods });
+      }
     },
     thumbWidth: { type: null },
     thumbHeight: { type: null },
@@ -30,6 +29,7 @@ Component({
     // currentGoods: {},
     // isShowToggle: false,
     foods: [],
+    menuData: [],
     _storeGoods: [],
     _invalidGoodItems: [],
   },
@@ -143,6 +143,7 @@ Component({
       //   this.isSpecsTap = false;
       //   return;
       // }
+      console.log(e.currentTarget.dataset);
       const { food } = e.currentTarget.dataset;
       this.triggerEvent('foodclick', { food });
     },

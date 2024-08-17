@@ -26,7 +26,7 @@
 .tag-cart-num {
   display: inline-block;
   position: absolute;
-  left: 50rpx;
+  left: 120rpx;
   right: auto;
   top: 6rpx;
   color: #fff;
@@ -104,4 +104,55 @@
 .flex-between {
   justify-content: space-between;
   -webkit-justify-content: space-between;
+}
+
+.bubble3 {
+  width: 20rpx;
+  height: 20rpx;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  animation: bubbleAnimation 1s ease-in-out 0s;
+}
+
+.bubble2 {
+  width: 17rpx;
+  height: 17rpx;
+  background-color: #fa320f;
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  left: 57.5%;
+  transform: translate(-50%, -50%);
+  animation: bubbleAnimation 1s ease-in-out 0.33s;
+}
+
+.bubble1 {
+  width: 15rpx;
+  height: 15rpx;
+  background-color: #fa550f;
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  animation: bubbleAnimation 1s ease-in-out 0.66s;
+}
+
+@keyframes bubbleAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -100%) scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -150%) scale(0);
+    opacity: 0;
+  }
 }

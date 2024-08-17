@@ -16,18 +16,27 @@
 				<text wx:if="{{shopCartNum > 0 && item.showCartNum}}" class="tag-cart-num">
 					{{shopCartNum > 99 ? '99+' : shopCartNum}}
 				</text>
+
 				<t-icon name="{{item.iconName}}" size="40rpx" />
 				<view class="operate-text">{{item.title}}</view>
 			</view>
 		</view>
 	</view>
+
 	<block wx:if="{{buttonType === 1}}">
+
 		<view class="flex buy-buttons">
 <!--			<view class="bar-separately {{soldout || !isStock ? 'bar-addCart-disabled' : ''}}" bindtap="toAddCart">-->
 <!--				加入购物车-->
 <!--			</view>-->
-			<view class="bar-buy {{soldout || !isStock ? 'bar-buyNow-disabled' : ''}}" bindtap="toBuyNow">
+
+			<view class="bar-buy"  bindtap="toBuyNow">
+				<view class="bubble1" wx:if="{{showBubble}}"></view>
+				<view class="bubble2" wx:if="{{showBubble}}"></view>
+				<view class="bubble3" wx:if="{{showBubble}}"></view>
+
 				立即下单
+
 			</view>
 		</view>
 	</block>
@@ -35,4 +44,3 @@
 		<slot name="buyButton" />
 	</block>
 </view>
-
