@@ -37,8 +37,7 @@ Component({
       this.triggerEvent('click', { ...e.detail, index });
     },
     onAddCart(e) {
-      const { index } = e.currentTarget.dataset;
-      this.triggerEvent('addcart', { ...e.detail, index });
+      this.triggerEvent('addcart', { ...e.detail });
     },
 
     onClickFoodsThumb(e) {

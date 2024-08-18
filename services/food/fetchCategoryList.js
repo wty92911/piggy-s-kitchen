@@ -1,12 +1,12 @@
 /** 获取商品列表 */
-import { categoryCloudPath } from '../../config/index';
+import { cloudStoragePath } from '../../config/index';
 import { getCategory } from '../../api/category';
 
 function addCloudPathPrefix(categoryList) {
   return categoryList.map((item) => {
     if (item.thumbnail) {
       // eslint-disable-next-line no-param-reassign
-      item.thumbnail = `${categoryCloudPath}${item.thumbnail}`;
+      item.thumbnail = `${cloudStoragePath}${item.thumbnail}`;
     }
     if (item.children && item.children.length > 0) {
       // eslint-disable-next-line no-param-reassign

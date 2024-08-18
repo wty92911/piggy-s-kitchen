@@ -97,3 +97,64 @@ page {
 .foods-list-container .price-ipts-wrap .price-ipt {
   border-radius: 8rpx;
 }
+
+.floating-menu {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px; /* 增大悬浮球的尺寸 */
+  height: 70px;
+  background-color: rgba(246, 150, 10, 0.67);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 添加阴影 */
+  z-index: 1000;
+  /* 添加圆形渐变阴影 */
+  background: radial-gradient(circle, rgb(234, 231, 225) 0%, rgba(246, 244, 240, 0.8) 70%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.menu-icon {
+  color: #fa550f;
+}
+
+.tag-cart-num {
+  display: inline-block;
+  position: absolute;
+  left: 80rpx;
+  right: auto;
+  top: 18rpx;
+  color: #fff;
+  line-height: 12rpx;
+  text-align: center;
+  z-index: 99;
+  white-space: nowrap;
+  min-width: 28rpx;
+  border-radius: 20rpx;
+  background-color: #fa550f !important;
+  font-size: 25rpx;
+  font-weight: 400;
+  padding: 3rpx 6rpx;
+}
+
+.floating-add {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 70px; /* 增大悬浮球的尺寸 */
+  height: 70px;
+  background-color: rgba(246, 150, 10, 0.67);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 添加阴影 */
+  z-index: 1000;
+  /* 添加圆形渐变阴影 */
+  background: radial-gradient(circle, rgb(234, 231, 225) 0%, rgba(246, 244, 240, 0.8) 70%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.add-icon {
+  color: #fa550f;
+}

@@ -47,6 +47,9 @@ Component({
   },
 
   data: {
+    showAnimation: false,
+    animationData: {},
+    cartPosition: { x: 0, y: 0 }, // 购物车的位置
     independentID: '',
     foods: { id: '' },
     isValidityLinePrice: false,
@@ -74,16 +77,39 @@ Component({
     },
 
     addCartHandle(e) {
-      const { id } = e.currentTarget;
-      const { id: cardID } = e.currentTarget.dataset;
+      const { id } = e.currentTarget.dataset;
       this.triggerEvent('add-cart', {
-        ...e.detail,
         id,
-        cardID,
-        foods: this.data.foods,
       });
+      // console.log(`#food-${id}`);
+      //
+      // wx.createSelectorQuery()
+      //   .in(this)
+      //   .select(`#food-${id}`)
+      //   .boundingClientRect((rect) => {
+      //     console.error('Failed to get click position');
+      //
+      //     if (rect) {
+      //       this.setData({
+      //         showAnimation: true,
+      //         startX: rect.left,
+      //         startY: rect.top
+      //       });
+      //       // 设置 CSS 变量
+      //       const animateIcon = this.selectComponent('.animate-icon');
+      //       animateIcon.setData({
+      //         style: `--startX: ${rect.left}px; --startY: ${rect.top}px;`,
+      //       });
+      //       // 隐藏动画节点
+      //       // setTimeout(() => {
+      //       //   this.setData({ showAnimation: false });
+      //       // }, 1000);
+      //     } else {
+      //       console.error('Failed to get click position');
+      //     }
+      //   })
+      //   .exec();
     },
-
     genIndependentID(id) {
       let independentID;
       if (id) {

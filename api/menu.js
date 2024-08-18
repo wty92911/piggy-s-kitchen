@@ -10,7 +10,7 @@ export async function getMenu() {
 }
 
 export async function updateMenu(newMenu) {
-  console.log(newMenu);
+  // console.log(newMenu);
   const db = wx.cloud.database();
   return db
     .collection(collectionName)
@@ -23,9 +23,9 @@ export async function updateMenu(newMenu) {
     .then((res) => {
       if (res.stats.updated === 1) {
         // return 'Menu updated successfully';
-        console.log(res);
+        // console.log(res);
       } else {
-        console.log(res);
+        // console.log(res);
         console.log('Menu update failed');
       }
     })

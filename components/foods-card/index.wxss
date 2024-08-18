@@ -133,3 +133,21 @@
 .spec-for-symbol {
   font-size: 24rpx;
 }
+.animate-icon {
+  position: fixed;
+  z-index: 1000;
+  animation: moveToCart 1s ease-in-out forwards;
+  --startX: 0px;
+  --startY: 0px;
+}
+
+@keyframes moveToCart {
+  0% {
+    top: var(--startY);
+    left: var(--startX);
+  }
+  100% {
+    top: calc(100vh - 68rpx); /* 位置调整，确保图标到达右下角 */
+    left: calc(100vw - 68rpx); /* 位置调整，确保图标到达右下角 */
+  }
+}

@@ -1,0 +1,28 @@
+<t-popup visible="{{showAddFoodPopup}}" position="center" bind:close="handleCancel" class="popup">
+    <view class="popup-content">
+        <view class="popup-header">添加菜品</view>
+        <scroll-view class="popup-body" scroll-y show-scrollbar="{{true}}" 	scroll-top="0px">
+            <t-input class="popup-input" placeholder="标题" value="{{foodFields.title}}" bind:change="handleFieldInput" data-field="title" />
+            <t-input class="popup-input" placeholder="描述" value="{{foodFields.desc}}" bind:change="handleFieldInput" data-field="desc" />
+            <t-input class="popup-input" placeholder="价格" value="{{foodFields.price}}" bind:change="handleFieldInput" data-field="price" />
+            <t-button class="upload-button" bindtap="handleUploadImage" data-field="primaryImage" theme="primary" size="large" variant="outline">上传主图</t-button>
+            <view class="image-container" wx:if="{{foodFields.primaryImage.length > 0}}">
+                <view class="image-wrap">
+                    <image class="image-preview" src="{{foodFields.primaryImage}}" mode="aspectFit"/>
+                </view>
+            </view>
+            <t-button class="upload-button" bindtap="handleUploadImage" data-field="images" theme="primary" size="large" variant="outline">上传其他图片</t-button>
+            <view class="image-container">
+                <block wx:for="{{foodFields.images}}" wx:key="*this">
+                    <view class="image-wrap">
+                        <image class="image-preview" src="{{item}}" mode="aspectFit"/>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+        <view class="popup-footer">
+            <button class="cancel-popup-button" bindtap="handleCancel">取消</button>
+            <button class="confirm-popup-button" bindtap="handleConfirm">确认</button>
+        </view>
+    </view>
+</t-popup>

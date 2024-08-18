@@ -19,4 +19,22 @@
   </view>
   <load-more wx:if="{{foodsList.length > 0}}" status="{{loadMoreStatus}}" no-more-text="没有更多了" />
 </view>
+<view class="floating-menu" bindtap="gotoMenuPage">
+  <t-icon class="menu-icon"  name="task" size="70rpx"/>
+  <view wx:if="{{menu.totalAmount > 0}}" class="tag-cart-num">
+    <text class="tag-num">
+      {{menu.totalAmount}}
+
+    </text>
+
+
+<!--    {{menu.totalAmount > 99 ? '99+' : menu.totalAmount}}-->
+  </view>
+</view>
+
+<view class="floating-add" bindtap="handleAddFoodClick">
+  <t-icon class="add-icon" name="add" size="70rpx"/>
+</view>
+
+<add-popup showAddFoodPopup="{{showAddFoodPopup}}" bind:done="handleAddFoodSuccess" groupId="{{groupId}}"/>
 <t-toast id="t-toast" />

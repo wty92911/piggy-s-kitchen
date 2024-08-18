@@ -1,5 +1,7 @@
 import { fetchFoodsList } from '../../../services/food/fetchFoodsList';
 import Toast from 'tdesign-miniprogram/toast';
+import { getMenu } from '../../../api/menu';
+import { addFoodToMenu } from '../../../services/menu/menu';
 
 const initFilters = {
   overall: 1,
@@ -9,6 +11,7 @@ const initFilters = {
 
 Page({
   data: {
+    menu: null,
     foodsList: [],
     layout: 0,
     sorts: '',
@@ -21,12 +24,20 @@ Page({
     loadMoreStatus: 0,
     loading: true,
     groupId: 0,
+    showAddFoodPopup: false,
   },
 
   pageNum: 1,
   pageSize: 30,
   total: 0,
 
+  onShow() {
+    // this.init(true);
+    getMenu().then((menu) => {
+      this.setData({ menu });
+      console.log(menu);
+    });
+  },
   handleFilterChange(e) {
     const { layout, overall, sorts } = e.detail;
     this.pageNum = 1;
@@ -38,7 +49,19 @@ Page({
     });
     this.init(true);
   },
-
+  handleAddFoodClick() {
+    this.setData({ showAddFoodPopup: true });
+  },
+  handleAddFoodSuccess(e) {
+    console.log(e);
+    this.setData({ showAddFoodPopup: false });
+    this.init(true);
+  },
+  gotoMenuPage() {
+    wx.switchTab({
+      url: '/pages/menu/index',
+    });
+  },
   generalQueryData(reset = false) {
     const { filter, keywords, minVal, maxVal, groupId } = this.data;
     const { pageNum, pageSize } = this;
@@ -72,9 +95,9 @@ Page({
   },
 
   async init(reset = true) {
-    const { loadMoreStatus, foodsList = [] } = this.data;
+    const { foodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
-    if (loadMoreStatus !== 0) return;
+    // if (loadMoreStatus !== 0) return;
     this.setData({
       loadMoreStatus: 1,
       loading: true,
@@ -149,12 +172,21 @@ Page({
     this.init(false);
   },
 
-  handleAddCart() {
-    Toast({
-      context: this,
-      selector: '#t-toast',
-      message: '已添加至菜单',
-    });
+  handleAddCart(e) {
+    const { id } = e.detail;
+    addFoodToMenu(id)
+      .then((menu) => {
+        this.setData({
+          menu,
+        });
+      })
+      .then(() => {
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '已添加至菜单',
+        });
+      });
   },
 
   tagClickHandle() {
