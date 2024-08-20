@@ -1,15 +1,18 @@
 <view class="foods-list-wrap wr-class" id="{{independentID}}">
-	  <block wx:for="{{foodsList}}" wx:for-item="item" wx:key="index">
-			<foods-card
-			  id="{{independentID}}-gd-{{index}}"
-			  data="{{item}}"
-			  currency="{{item.currency || '¥'}}"
-			  thresholds="{{thresholds}}"
-			  class="foods-card-inside"
-			  data-index="{{index}}"
-			  bind:thumb="onClickFoodsThumb"
-			  bind:click="onClickFoods"
-			  bind:add-cart="onAddCart"
-			/>
-	  </block>
+  <block wx:for="{{foodsList}}" wx:for-item="item" wx:key="index">
+	<swipeout right-width="{{ 72 }}">
+	  <foods-card
+	    id="{{independentID}}-gd-{{index}}"
+		data="{{item}}"
+	  	currency="{{item.currency || '¥'}}"
+	  	thresholds="{{thresholds}}"
+	  	class="foods-card-inside"
+	  	data-index="{{index}}"
+	  	bind:thumb="onClickFoodsThumb"
+	  	bind:click="onClickFoods"
+	  	bind:add-cart="onAddCart"
+		/>
+		<view slot="right" class="swiper-right-del" bindtap="onDeleteFood" data-food="{{item}}"> 删除 </view>
+	</swipeout>
+  </block>
 </view>

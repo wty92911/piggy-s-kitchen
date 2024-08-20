@@ -5,3 +5,13 @@
   padding: 0;
   background: #fff;
 }
+.swiper-right-del {
+  height: calc(100% - 40rpx);
+  width: 144rpx;
+  background-color: #fa4126;
+  font-size: 28rpx;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

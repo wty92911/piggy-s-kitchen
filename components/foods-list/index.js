@@ -39,7 +39,10 @@ Component({
     onAddCart(e) {
       this.triggerEvent('addcart', { ...e.detail });
     },
-
+    onDeleteFood(e) {
+      const { food } = e.currentTarget.dataset;
+      this.triggerEvent('delete', { food });
+    },
     onClickFoodsThumb(e) {
       const { index } = e.currentTarget.dataset;
       this.triggerEvent('thumb', { ...e.detail, index });

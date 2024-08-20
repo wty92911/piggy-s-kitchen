@@ -15,7 +15,8 @@
     <t-empty t-class="empty-tips" size="240rpx" description="暂无相关菜品" />
   </view>
   <view class="category-foods-list" wx:if="{{foodsList.length}}">
-     <foods-list wr-class="wr-foods-list" foodsList="{{foodsList}}" bind:click="gotoFoodsDetail" bind:addcart="handleAddCart" />
+     <foods-list wr-class="wr-foods-list" foodsList="{{foodsList}}" bind:click="gotoFoodsDetail"
+       bind:addcart="handleAddCart" bind:delete="onDeleteFood"/>
   </view>
   <load-more wx:if="{{foodsList.length > 0}}" status="{{loadMoreStatus}}" no-more-text="没有更多了" />
 </view>
@@ -38,3 +39,4 @@
 
 <add-popup showAddFoodPopup="{{showAddFoodPopup}}" bind:done="handleAddFoodSuccess" groupId="{{groupId}}"/>
 <t-toast id="t-toast" />
+<t-dialog id="t-dialog" />

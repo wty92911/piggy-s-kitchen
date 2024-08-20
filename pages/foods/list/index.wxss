@@ -158,3 +158,8 @@ page {
 .add-icon {
   color: #fa550f;
 }
+
+.t-button {
+  --td-button-default-color: #000;
+  --td-button-primary-text-color: #fa4126;
+}

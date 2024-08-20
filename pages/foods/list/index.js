@@ -2,6 +2,8 @@ import { fetchFoodsList } from '../../../services/food/fetchFoodsList';
 import Toast from 'tdesign-miniprogram/toast';
 import { getMenu } from '../../../api/menu';
 import { addFoodToMenu } from '../../../services/menu/menu';
+import Dialog from 'tdesign-miniprogram/dialog/index';
+import { deleteFood } from '../../../api/food';
 
 const initFilters = {
   overall: 1,
@@ -171,7 +173,24 @@ Page({
     }
     this.init(false);
   },
-
+  onDeleteFood(e) {
+    const { food } = e.detail;
+    Dialog.confirm({
+      content: '确认删除该商品吗?',
+      confirmBtn: '确定',
+      cancelBtn: '取消',
+    })
+      .then(() => {
+        deleteFood(this.data.foodsList, food).then(() => {
+          Toast({ context: this, selector: '#t-toast', message: '商品删除成功' });
+        });
+      })
+      .then(() => this.init(true))
+      .catch((err) => {
+        Toast({ context: this, selector: '#t-toast', message: '商品删除失败' });
+        console.error('添加菜品失败:', err);
+      });
+  },
   handleAddCart(e) {
     const { id } = e.detail;
     addFoodToMenu(id)

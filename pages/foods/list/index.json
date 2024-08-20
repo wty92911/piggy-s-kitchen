@@ -10,6 +10,7 @@
     "filter-popup": "/components/filter-popup/index",
     "load-more": "/components/load-more/index",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "add-popup": "./components/add-popup/index"
+    "add-popup": "./components/add-popup/index",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog"
   }
 }

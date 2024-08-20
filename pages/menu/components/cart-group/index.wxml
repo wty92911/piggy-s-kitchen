@@ -3,13 +3,12 @@
 
 <view class="cart-group">
   <view class="goods-wrap" >
-
-      <view
-        class="goods-item"
-        wx:for="{{foods}}"
-        wx:for-item="food"
-        wx:for-index="gi"
-        wx:key="extKey"
+    <view
+      class="goods-item"
+      wx:for="{{foods}}"
+      wx:for-item="food"
+      wx:for-index="gi"
+      wx:key="extKey"
       >
         <swipeout right-width="{{ 72 }}">
           <view class="goods-item-info">

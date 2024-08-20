@@ -14,8 +14,8 @@ Component({
       value: '',
       observer(groupId) {
         this.setData({ groupId });
-      }
-    }
+      },
+    },
   },
   data: {
     showAddFoodPopup: true,
@@ -46,6 +46,18 @@ Component({
       getAllFoods()
         .then((allFoods) => {
           const id = allFoods.length ? String(parseInt(allFoods[allFoods.length - 1].id) + 1) : '1';
+          // 各个字段非空
+          for (const key in this.data.foodFields) {
+            if (!this.data.foodFields[key] || this.data.foodFields[key].length === 0) {
+              throw new Error('请填写完整信息');
+            }
+          }
+          // title 不重复
+          for (let i = 0; i < allFoods.length; i++) {
+            if (allFoods[i].title === this.data.foodFields.title) {
+              throw new Error('菜品已存在');
+            }
+          }
           const food = {
             id,
             ...this.data.foodFields,
@@ -70,7 +82,7 @@ Component({
         .catch((error) => {
           // 错误处理
           wx.showToast({
-            title: '添加菜品失败',
+            title: `${error.message}`,
             icon: 'error',
           });
           console.error('添加菜品失败:', error);

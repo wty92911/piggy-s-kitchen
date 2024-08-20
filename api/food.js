@@ -54,3 +54,23 @@ export async function addFood(allFoods, food) {
       },
     });
 }
+
+export async function deleteFood(allFoods, food) {
+  for (let i = 0; i < food.images.length; i++) {
+    wx.cloud.deleteFile({
+      fileList: [food.images[i]],
+    });
+  }
+  wx.cloud.deleteFile({
+    fileList: [food.primaryImage],
+  });
+  const db = wx.cloud.database();
+  return db
+    .collection(collectionName)
+    .doc(allFoodsDocId)
+    .update({
+      data: {
+        allFoods: allFoods.filter((item) => item.id !== food.id),
+      },
+    });
+}
